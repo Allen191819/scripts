@@ -19,6 +19,7 @@ daemons() {
 	nm-applet &
 	clipmenud &
 	~/scripts/tap-to-click.sh &
+	~/scripts/wallpaper-wrap.sh &
 	sleep 1 && picom --config ~/.config/picom/picom.conf &
 	sleep 2 && qv2ray &
 	sleep 5 && fcitx5 &
@@ -27,7 +28,6 @@ daemons() {
 every2s() {
 	[ $1 ] && sleep $1
 	while true; do
-		~/scripts/set-screen.sh check &
 		~/scripts/dwm-status.sh &
 		sleep 2
 	done
@@ -43,6 +43,8 @@ every1000s() {
 		wuhan=$(curl 'wttr.in/WuHan?format=3')
 		sleep 5 && notify-send "$(date '+%Y-%m-%d')" "$hanzhong\n$wuhan" &
 		sleep 1000
+		~/scripts/set-screen.sh check &
+		~/scripts/wallpaper-wrap.sh &
 	done
 }
 

@@ -14,7 +14,7 @@ DISCONNECT_SCREEN=$(xrandr | grep HDMI | grep ' disconnected ' | awk '{print $1}
 
 _post() {
 	~/scripts/edit-profile.sh SCREEN_MODE $1
-    ~/scripts/wallpaper.sh
+#    ~/scripts/wallpaper.sh
 }
 two() {
 	[ ! "$CONNECT_SCREEN" ] && one && return
