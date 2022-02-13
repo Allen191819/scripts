@@ -34,4 +34,5 @@ case $1 in
     clock) ~/scripts/lib/clockst -c float -g 60x15$(st_geometry) -e tty-clock -csDC 7 & ;;
     ast) st ;;
     music) listen1 ;;
+    virt) virt-manager ;;
 esac
