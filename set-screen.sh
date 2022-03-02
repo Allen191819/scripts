@@ -14,18 +14,15 @@ DISCONNECT_SCREEN=$(xrandr | grep HDMI | grep ' disconnected ' | awk '{print $1}
 
 _post() {
 	~/scripts/edit-profile.sh SCREEN_MODE $1
-#    ~/scripts/wallpaper.sh
+	~/scripts/wallpaper.sh
 }
 two() {
 	[ ! "$CONNECT_SCREEN" ] && one && return
-	xrandr --output $INNER_SCREEN --mode 1920x1080 --pos 1920x0 --scale 1x1 --rate 144\
-		--output $CONNECT_SCREEN --mode 1920x1080 --pos 0x0 --scale 1x1 --primary --rate 144\
-		--output $DISCONNECT_SCREEN --off
+	xrandr --output $INNER_SCREEN --mode 1920x1080 --pos 1920x0 --scale 1x1 --rate 120 --output $CONNECT_SCREEN --mode 1920x1080 --pos 0x0 --scale 1x1 --primary --rate 120 --output $DISCONNECT_SCREEN --off
 	_post TWO
 }
 one() {
-	xrandr --output $INNER_SCREEN --mode 1920x1080 --pos 0x0 --scale 1x1 --primary --rate 144\
-		--output $OUT1_SCREEN --off \
+	xrandr --output $INNER_SCREEN --mode 1920x1080 --pos 0x0 --scale 1x1 --primary --rate 144 --output $OUT1_SCREEN --off \
 		--output $OUt2_SCREEN --off
 	_post ONE
 }

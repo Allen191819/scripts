@@ -18,8 +18,8 @@ daemons() {
 	optimus-manager-qt &
 	nm-applet &
 	clipmenud &
+    conky &
 	~/scripts/tap-to-click.sh &
-	~/scripts/wallpaper-wrap.sh &
 	sleep 1 && picom --config ~/.config/picom/picom.conf &
 	sleep 2 && qv2ray &
 	sleep 5 && fcitx5 &
@@ -44,7 +44,7 @@ every1000s() {
 		sleep 5 && notify-send "$(date '+%Y-%m-%d')" "$hanzhong\n$wuhan" &
 		sleep 1000
 		~/scripts/set-screen.sh check &
-		~/scripts/wallpaper-wrap.sh &
+		~/scripts/wallpaper.sh &
 	done
 }
 

@@ -1,12 +1,5 @@
-:<<!
- author: chenyc
- date: 2021/09/15
-
- 使用说明: https://yaocc.cc/2021/10/19/如何写一个可以键盘控制的shell脚本/
-!
 
 ###############################################
-
 key=''
 _echo_green() { echo -e "\033[32m$1\033[0m"; }
 _get_char() { SAVEDSTTY=`stty -g`; stty -echo; stty raw; dd if=/dev/tty bs=1 count=1 2> /dev/null; stty -raw; stty echo; stty $SAVEDSTTY; }
@@ -66,6 +59,11 @@ menu() {
                     D) _key -1 0 ;;
                     C) _key 1 0 ;;
                 esac ;;
+            'k') _key 0 -1 ;;
+            'j') _key 0 1 ;;
+            'h') _key -1 0 ;;
+            'l') _key 1 0 ;;
         esac
     done
 }
+
