@@ -48,7 +48,7 @@ every1000s() {
 	done
 }
 
-settings 1 &
 daemons 1 &
+settings 1 &
 every2s 2 &
 every1000s 30 &

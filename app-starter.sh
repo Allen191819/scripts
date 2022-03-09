@@ -17,6 +17,7 @@ st_geometry() {
 
 case $1 in
 pcmanfm) pcmanfm ;;
+alacritty) alacritty ;;
 rofi) ~/.dotfiles/tag-polybar/config/polybar/cuts/scripts/launcher.sh ;;
 lock) multilockscreen -l ;;
 browser) brave-browser-beta ;;
@@ -26,8 +27,8 @@ tim) /opt/apps/com.qq.tim.spark/files/run.sh ;;
 qq) icalingua ;;
 clipboard) clipmenu ;;
 notebook) jupyter notebook ;;
-wechat) /opt/apps/com.qq.weixin.deepin/files/run.sh ;;
-term) alacritty ;;
+wechat) wechat-uos ;;
+term) sh -c "GLFW_IM_MODULE=ibus kitty" ;;
 flameshot) flameshot gui ;;
 screenkey) sk ;;
 surf) /usr/local/bin/surf $2 >>/dev/null 2>&1 & ;;
@@ -36,4 +37,6 @@ ast) st ;;
 music) listen1 ;;
 virt) virt-manager ;;
 db) dbeaver ;;
+telegram) telegram-desktop ;;
+feishu) feishu ;;
 esac
