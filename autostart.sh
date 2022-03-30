@@ -7,11 +7,11 @@ settings() {
 	xset -b
 	syndaemon -i 1 -t -K -R -d
 	xss-lock -- multilockscreen -l &
-	~/scripts/set-screen.sh &
 }
 
 daemons() {
 	[ $1 ] && sleep $1
+	~/scripts/set-screen.sh &
 	dunst &
 	mate-power-manager &
 	blueman-applet &
