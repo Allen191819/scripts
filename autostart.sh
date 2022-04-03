@@ -6,6 +6,7 @@ settings() {
 	xset s 600
 	xset -b
 	syndaemon -i 1 -t -K -R -d
+    source ~/.xinitrc
 	xss-lock -- multilockscreen -l &
 }
 
