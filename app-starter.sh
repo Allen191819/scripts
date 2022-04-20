@@ -39,4 +39,6 @@ virt) virt-manager ;;
 db) dbeaver ;;
 telegram) telegram-desktop ;;
 feishu) feishu ;;
+pycharm) pycharm-ce ;;
+idea) idea-ce ;;
 esac

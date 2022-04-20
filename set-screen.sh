@@ -8,7 +8,7 @@
 
 INNER_SCREEN=eDP-1-1
 OUT1_SCREEN=HDMI-0
-OUt2_SCREEN=HDMI-1-1
+OUT2_SCREEN=HDMI-1-1
 CONNECT_SCREEN=$(xrandr | grep HDMI | grep ' connected ' | awk '{print $1}')
 DISCONNECT_SCREEN=$(xrandr | grep HDMI | grep ' disconnected ' | awk '{print $1}')
 
@@ -23,7 +23,7 @@ two() {
 }
 one() {
 	xrandr --output $INNER_SCREEN --mode 1920x1080 --pos 0x0 --scale 1x1 --primary --rate 144 --output $OUT1_SCREEN --off \
-		--output $OUt2_SCREEN --off
+		--output $OUT2_SCREEN --off
 	_post ONE
 }
 check() {

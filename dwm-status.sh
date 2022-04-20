@@ -32,12 +32,17 @@ print_cpu() {
     cpu_icon=""
     cpu_text=$(top -n 1 -b | sed -n '3p' | awk '{printf "%02d", 100 - $8}')
 
-    if  [ "$cpu_text" -ge 90 ]; then light="━━━━━"; dark="";
-    elif [ "$cpu_text" -ge 70 ]; then light="━━━━"; dark="━";
-    elif [ "$cpu_text" -ge 50 ]; then light="━━━"; dark="━━";
-    elif [ "$cpu_text" -ge 30 ]; then light="━━"; dark="━━━";
-    elif [ "$cpu_text" -ge 10 ]; then light="━"; dark="━━━━";
-    else light=""; dark="━━━━━"; fi
+    if  [ "$cpu_text" -ge 90 ]; then light="━━━━━━━━━━"; dark="";
+    elif [ "$cpu_text" -ge 80 ]; then light="━━━━━━━━━"; dark="━";
+    elif [ "$cpu_text" -ge 70 ]; then light="━━━━━━━━"; dark="━━";
+    elif [ "$cpu_text" -ge 60 ]; then light="━━━━━━━"; dark="━━━";
+    elif [ "$cpu_text" -ge 50 ]; then light="━━━━━━"; dark="━━━━";
+    elif [ "$cpu_text" -ge 40 ]; then light="━━━━━"; dark="━━━━━";
+    elif [ "$cpu_text" -ge 30 ]; then light="━━━━"; dark="━━━━━━";
+    elif [ "$cpu_text" -ge 20 ]; then light="━━━"; dark="━━━━━━━";
+    elif [ "$cpu_text" -ge 10 ]; then light="━━"; dark="━━━━━━━━";
+    elif [ "$cpu_text" -ge 0 ]; then light="━"; dark="━━━━━━━━━";
+    else light=""; dark="━━━━━━━━━━"; fi
 
     cpu_text=$cpu_text%
 
@@ -59,12 +64,18 @@ print_mem() {
 	mem_icon=""
     mem_text=$(echo $[ ($total - $available) * 100 / $total ] | awk '{printf "%02d", $1}')
 
-    if  [ "$mem_text" -ge 90 ]; then light="━━━━━"; dark="";
-    elif [ "$mem_text" -ge 70 ]; then light="━━━━"; dark="━";
-    elif [ "$mem_text" -ge 50 ]; then light="━━━"; dark="━━";
-    elif [ "$mem_text" -ge 30 ]; then light="━━"; dark="━━━";
-    elif [ "$mem_text" -ge 10 ]; then light="━"; dark="━━━━";
-    else light=""; dark="━━━━━"; fi
+
+    if  [ "$mem_text" -ge 90 ]; then light="━━━━━━━━━━"; dark="";
+    elif [ "$mem_text" -ge 80 ]; then light="━━━━━━━━━"; dark="━";
+    elif [ "$mem_text" -ge 70 ]; then light="━━━━━━━━"; dark="━━";
+    elif [ "$mem_text" -ge 60 ]; then light="━━━━━━━"; dark="━━━";
+    elif [ "$mem_text" -ge 50 ]; then light="━━━━━━"; dark="━━━━";
+    elif [ "$mem_text" -ge 40 ]; then light="━━━━━"; dark="━━━━━";
+    elif [ "$mem_text" -ge 30 ]; then light="━━━━"; dark="━━━━━━";
+    elif [ "$mem_text" -ge 20 ]; then light="━━━"; dark="━━━━━━━";
+    elif [ "$mem_text" -ge 10 ]; then light="━━"; dark="━━━━━━━━";
+    elif [ "$mem_text" -ge 0 ]; then light="━"; dark="━━━━━━━━━";
+    else light=""; dark="━━━━━━━━━━"; fi
 
     mem_text=$mem_text%
 
@@ -78,6 +89,12 @@ print_mem() {
     printf "%s%s%s" "$color1" "$text1" "$s2d_reset"
     printf "%s%s%s" "$color2" "$text2" "$s2d_reset"
     printf "%s%s%s" "$color1" "$text3" "$s2d_reset"
+}
+
+print_coins() {
+    text=" ﴑ:$BTC ﲹ:$ETH  :$BNB "
+    color=$coin_color
+    printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
 print_mail() {
@@ -189,4 +206,4 @@ print_others() {
     fi
 }
 
-xsetroot -name "$(print_cpu)$(print_mem)$(print_time)$(print_vol)$(print_light)$(print_bat)"
+xsetroot -name "$(print_coins)$(print_cpu)$(print_mem)$(print_mail)$(print_time)$(print_vol)$(print_light)$(print_bat)"
