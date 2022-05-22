@@ -44,7 +44,7 @@ every300s() {
 		[ "$ETH" -gt 0 ] && ~/scripts/edit-profile.sh ETH $ETH
 		[ "$BNB" -gt 0 ] && ~/scripts/edit-profile.sh BNB $BNB
 		~/scripts/dwm-status.sh &
-		sleep 300
+		sleep 600
 	done
 }
 
@@ -52,14 +52,14 @@ every1000s() {
 	[ $1 ] && sleep $1
 	while true; do
 		source ~/.profile
-		xset -b
-		xmodmap ~/.Xmodmap
+		xset -b &
+		xmodmap ~/.Xmodmap &
 		hanzhong=$(curl 'wttr.in/HanZhong?format=3')
 		wuhan=$(curl 'wttr.in/WuHan?format=3')
 		sleep 5 && notify-send "$(date '+%Y-%m-%d')" "$hanzhong\n$wuhan" &
 		fetchmail -a &
 		mailcount=$(ls ~/Mail/inbox/new | wc -w)
-		[ "$mailcount" -gt 0 ] && notify-send "📧 NEW MAIL: ${mailcount}" -u low
+		[ "$mailcount" -gt 0 ] && notify-send "📧 NEW MAIL: ${mailcount}" -u low &
 		sleep 1000
 		~/scripts/set-screen.sh check &
 		~/scripts/wallpaper.sh &
