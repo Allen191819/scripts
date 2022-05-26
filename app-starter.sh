@@ -23,7 +23,7 @@ lock) multilockscreen -l ;;
 browser) brave-browser-beta ;;
 pavucontrol) pavucontrol ;;
 postman) postman ;;
-tim) /opt/apps/com.qq.im.deepin/files/run.sh ;;
+tim) ;;
 qq) icalingua ;;
 clipboard) clipmenu ;;
 notebook) jupyter notebook ;;
