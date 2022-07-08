@@ -23,7 +23,7 @@ lock) multilockscreen -l ;;
 browser) brave-browser-beta ;;
 pavucontrol) pavucontrol ;;
 postman) postman ;;
-tim) ;;
+tim) /opt/apps/com.qq.im.deepin/files/run.sh;;
 qq) icalingua ;;
 clipboard) clipmenu ;;
 notebook) jupyter notebook ;;
@@ -41,4 +41,7 @@ telegram) telegram-desktop ;;
 feishu) feishu ;;
 pycharm) pycharm-ce ;;
 idea) idea-ce ;;
+warpd-n) warpd --normal ;;
+warpd-h) warpd --hint ;;
+warpd-g) warpd --grid ;;
 esac

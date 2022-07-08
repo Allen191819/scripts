@@ -26,7 +26,6 @@ daemons() {
 	sleep 1 && picom --config ~/.config/picom/picom.conf &
 	sleep 2 && clash &
 	sleep 2 && fcitx5 &
-	# sleep 2 && xmodmap ~/.Xmodmap &
 }
 
 every2s() {
@@ -46,6 +45,7 @@ every300s() {
 		[ "$BTC" -gt 0 ] && ~/scripts/edit-profile.sh BTC $BTC
 		[ "$ETH" -gt 0 ] && ~/scripts/edit-profile.sh ETH $ETH
 		[ "$BNB" -gt 0 ] && ~/scripts/edit-profile.sh BNB $BNB
+		~/scripts/set-screen.sh check &
 		~/scripts/dwm-status.sh &
 		sleep 600
 	done
@@ -61,8 +61,7 @@ every1000s() {
 		mailcount=$(ls ~/Mail/inbox/new | wc -w)
 		[ "$mailcount" -gt 0 ] && notify-send "📧 NEW MAIL: ${mailcount}" -u low &
 		sleep 1000
-		~/scripts/set-screen.sh check &
-		~/scripts/wallpaper.sh &
+		~/scripts/set-screen.sh &
 	done
 }
 
