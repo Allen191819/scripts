@@ -272,7 +272,7 @@ print_light() {
 
 print_others() {
 	if [ "$(ps -ef | grep clash | wc -l)" -eq 2 ]; then
-		vpn_icon=""
+		vpn_icon=" "
 		if [ "$vpn_icon" ]; then
 			text=" $vpn_icon "
 			color=$others_color
@@ -282,7 +282,7 @@ print_others() {
 }
 
 print_down_traffic() {
-	icon=' '
+	icon=' '
 	RECIEVE1=0
 	RECIEVE2=0
 	IFACES=$(ip -o link show | awk -F': ' '{print $2}')
@@ -304,7 +304,7 @@ print_down_traffic() {
 }
 
 print_up_traffic() {
-	icon=' '
+	icon=' '
 	TRANSMIT1=0
 	TRANSMIT2=0
 	IFACES=$(ip -o link show | awk -F': ' '{print $2}')

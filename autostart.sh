@@ -15,6 +15,7 @@ settings() {
 daemons() {
 	[ $1 ] && sleep $1
 	~/scripts/set-screen.sh &
+	~/scripts/tap-to-click.sh &
 	dunst &
 	mate-power-manager &
 	blueman-applet &
@@ -22,10 +23,10 @@ daemons() {
 	nm-applet &
 	clipmenud &
 	conky &
-	~/scripts/tap-to-click.sh &
-	sleep 1 && picom --config ~/.config/picom/picom.conf &
+    sleep 3 && ~/scripts/wallpaper.sh &
 	sleep 2 && clash &
 	sleep 2 && fcitx5 &
+	sleep 1 && picom --config ~/.config/picom/picom.conf --experimental-backends &
 }
 
 every2s() {
@@ -61,7 +62,7 @@ every1000s() {
 		mailcount=$(ls ~/Mail/inbox/new | wc -w)
 		[ "$mailcount" -gt 0 ] && notify-send "📧 NEW MAIL: ${mailcount}" -u low &
 		sleep 1000
-		~/scripts/set-screen.sh &
+        ~/scripts/wallpaper.sh
 	done
 }
 
