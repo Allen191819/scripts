@@ -23,10 +23,12 @@ daemons() {
 	nm-applet &
 	clipmenud &
 	conky &
-    sleep 3 && ~/scripts/wallpaper.sh &
+    numlockx &
+	~/scripts/set-screen.sh check &
+    sleep 1 && ~/scripts/wallpaper.sh &
+	sleep 1 && picom --config ~/.config/picom/picom.conf --experimental-backends &
 	sleep 2 && clash &
 	sleep 2 && fcitx5 &
-	sleep 1 && picom --config ~/.config/picom/picom.conf --experimental-backends &
 }
 
 every2s() {

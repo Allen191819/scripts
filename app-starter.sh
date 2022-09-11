@@ -44,4 +44,5 @@ idea) idea-ce ;;
 warpd-n) warpd --normal ;;
 warpd-h) warpd --hint ;;
 warpd-g) warpd --grid ;;
+wallpaper) /home/allen/scripts/wallpaper.sh ;;
 esac
