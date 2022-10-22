@@ -8,7 +8,7 @@ settings() {
 	syndaemon -i 1 -t -K -R -d
 	source ~/.xinitrc
 	udiskie &
-	xss-lock -- multilockscreen -l &
+	xss-lock -- betterlockscreen -l &
 	wmname LG3D
 }
 
@@ -59,7 +59,7 @@ every1000s() {
 	while true; do
 		source ~/.profile
 		xset -b &
-		sleep 5 && notify-send "$(date '+%Y-%m-%d')" "$(curl 'wttr.in/HanZhong?format=3')\n$(curl 'wttr.in/WuHan?format=3')" &
+		#sleep 5 && notify-send "$(date '+%Y-%m-%d')" "$(curl 'wttr.in/HanZhong?format=3')\n$(curl 'wttr.in/WuHan?format=3')" &
 		fetchmail -a &
 		mailcount=$(ls ~/Mail/inbox/new | wc -w)
 		[ "$mailcount" -gt 0 ] && notify-send "📧 NEW MAIL: ${mailcount}" -u low &

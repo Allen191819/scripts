@@ -29,6 +29,7 @@ bat_color="$s2d_fg$color00$s2d_bg$color02"
 others_color="$s2d_fg$color04$s2d_bg$color06"
 download_color="$s2d_fg$color00$s2d_bg$color02"
 upload_color="$s2d_fg$color00$s2d_bg$color02"
+docker_color="$s2d_fg$color08$s2d_bg$color07"
 
 print_cpu() {
 	cpu_icon=""
@@ -281,20 +282,28 @@ print_others() {
 	fi
 }
 
+print_docker() {
+    docker_num=$(($(docker ps | wc -l)-1))
+    docker_icon=" "
+    text=" $docker_icon $docker_num "
+    color=$docker_color
+    printf "%s%s%s" "$color" "$text" "$s2d_reset"
+}
+
 print_down_traffic() {
 	icon=' '
 	RECIEVE1=0
 	RECIEVE2=0
 	IFACES=$(ip -o link show | awk -F': ' '{print $2}')
 	for IFACE in $IFACES; do
-		if [ $IFACE == "wlo1" ] || [ $IFACE == "eno1" ]; then
+		if [ $IFACE == "wlan0" ] || [ $IFACE == "eno1" ]; then
 			RECIEVE1=$(($(ifconfig $IFACE | grep "RX packets" | awk '{print $5}') + $RECIEVE1))
 		fi
 	done
 	sleep 1
 	IFACES=$(ip -o link show | awk -F': ' '{print $2}')
 	for IFACE in $IFACES; do
-		if [ $IFACE == "wlo1" ] || [ $IFACE == "eno1" ]; then
+		if [ $IFACE == "wlan0" ] || [ $IFACE == "eno1" ]; then
 			RECIEVE2=$(($(ifconfig $IFACE | grep "RX packets" | awk '{print $5}') + $RECIEVE2))
 		fi
 	done
@@ -309,14 +318,14 @@ print_up_traffic() {
 	TRANSMIT2=0
 	IFACES=$(ip -o link show | awk -F': ' '{print $2}')
 	for IFACE in $IFACES; do
-		if [ $IFACE == "wlo1" ] || [ $IFACE == "eno1" ]; then
+		if [ $IFACE == "wlan0" ] || [ $IFACE == "eno1" ]; then
 			TRANSMIT1=$(($(ifconfig $IFACE | grep "TX packets" | awk '{print $5}') + TRANSMIT1))
 		fi
 	done
 	sleep 1
 	IFACES=$(ip -o link show | awk -F': ' '{print $2}')
 	for IFACE in $IFACES; do
-		if [ $IFACE == "wlo1" ] || [ $IFACE == "eno1" ]; then
+		if [ $IFACE == "wlan0" ] || [ $IFACE == "eno1" ]; then
 			TRANSMIT2=$(($(ifconfig $IFACE | grep "TX packets" | awk '{print $5}') + TRANSMIT2))
 		fi
 	done
@@ -325,4 +334,4 @@ print_up_traffic() {
 	printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-xsetroot -name "$(print_coins)$(print_down_traffic)$(print_up_traffic)$(print_cpu)$(print_mem)$(print_mail)$(print_time)$(print_vol)$(print_light)$(print_bat)$(print_others)"
+xsetroot -name "$(print_coins)$(print_down_traffic)$(print_up_traffic)$(print_docker)$(print_cpu)$(print_mem)$(print_mail)$(print_time)$(print_vol)$(print_light)$(print_bat)$(print_others)"
