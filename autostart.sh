@@ -19,11 +19,10 @@ daemons() {
 	dunst &
 	mate-power-manager &
 	blueman-applet &
-	optimus-manager-qt &
 	nm-applet &
 	clipmenud &
 	conky &
-    numlockx &
+    	numlockx &
 	~/scripts/set-screen.sh check &
     sleep 1 && ~/scripts/wallpaper.sh &
 	sleep 1 && picom --config ~/.config/picom/picom.conf --experimental-backends &
@@ -64,6 +63,7 @@ every1000s() {
 		mailcount=$(ls ~/Mail/inbox/new | wc -w)
 		[ "$mailcount" -gt 0 ] && notify-send "📧 NEW MAIL: ${mailcount}" -u low &
 		sleep 1000
+        betterlockscreen -u ~/Pictures/Background/
         ~/scripts/wallpaper.sh
 	done
 }
