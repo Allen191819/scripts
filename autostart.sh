@@ -18,6 +18,7 @@ daemons() {
 	~/scripts/tap-to-click.sh &
 	dunst &
 	mate-power-manager &
+    nohup /usr/lib/gsd-xsettings > /dev/null 2>&1 &
 	blueman-applet &
 	optimus-manager-qt &
 	nm-applet &
@@ -64,7 +65,6 @@ every1000s() {
 		mailcount=$(ls ~/Mail/inbox/new | wc -w)
 		[ "$mailcount" -gt 0 ] && notify-send "📧 NEW MAIL: ${mailcount}" -u low &
 		sleep 1000
-        ~/scripts/wallpaper.sh
 	done
 }
 

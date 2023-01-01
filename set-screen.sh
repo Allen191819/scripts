@@ -17,12 +17,22 @@ _post() {
 }
 two() {
     [ ! "$CONNECT_SCREEN" ] && one && return;
+    ~/scripts/wallpaper.sh &
     xrandr --output $INNER_SCREEN   --mode 1920x1080 --pos 1920x0 --rate 120  --scale 1x1 \
            --output $CONNECT_SCREEN --mode 1920x1080 --pos 0x0    --rate 144  --scale 1x1 --primary \
            --output $DISCONNECT_SCREEN --off
     _post TWO
 }
+twov() {
+    [ ! "$CONNECT_SCREEN" ] && one && return;
+    ~/scripts/wallpaper-v.sh &
+    xrandr --output $INNER_SCREEN   --mode 1920x1080 --pos 1080x0 --rate 120  --scale 1x1 \
+           --output $CONNECT_SCREEN --mode 1920x1080 --pos 0x0    --rate 144  --scale 1x1 --primary --rotate left \
+           --output $DISCONNECT_SCREEN --off
+    _post TWO
+}
 one() {
+    ~/scripts/wallpaper.sh &
     xrandr --output $INNER_SCREEN --mode 1920x1080   --pos 0x0    --rate 144  --scale 1x1  --primary  \
            --output $OUT1_SCREEN --off \
            --output $OUt2_SCREEN --off
