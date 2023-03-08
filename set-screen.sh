@@ -41,6 +41,7 @@ one() {
 
 check() {
     source ~/.profile
+    ~/scripts/wallpaper.sh &
     [ "$AUTOSCREEN" = "OFF" ] && return
     [ "$CONNECT_SCREEN" ] && [ "$SCREEN_MODE" == "ONE" ] && two;
     [ ! "$CONNECT_SCREEN" ] && [ "$SCREEN_MODE" != "ONE" ] && two;
