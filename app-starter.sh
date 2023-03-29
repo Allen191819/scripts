@@ -23,7 +23,7 @@ lock) betterlockscreen -l ;;
 browser) brave-browser-beta ;;
 pavucontrol) pavucontrol ;;
 postman) postman ;;
-qq) icalingua ;;
+qq) qq ;;
 clipboard) export CM_LAUNCHER=dmenu&&clipmenu ;;
 notebook) jupyter notebook ;;
 wechat) electronic-wechat-uos-bin ;;
