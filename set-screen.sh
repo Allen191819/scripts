@@ -6,9 +6,9 @@
   check: 检测显示器连接状态是否变化 -> 调用two
 !
 
-INNER_SCREEN=eDP-1-1
-OUT1_SCREEN=HDMI-0
-OUT2_SCREEN=HDMI-1-1
+INNER_SCREEN=eDP
+OUT1_SCREEN=HDMI-A-0
+OUT2_SCREEN=DisplayPort-0
 CONNECT_SCREEN=$(xrandr | grep HDMI | grep ' connected ' | awk '{print $1}')
 DISCONNECT_SCREEN=$(xrandr | grep HDMI | grep ' disconnected ' | awk '{print $1}')
 

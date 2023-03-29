@@ -296,14 +296,14 @@ print_down_traffic() {
 	RECIEVE2=0
 	IFACES=$(ip -o link show | awk -F': ' '{print $2}')
 	for IFACE in $IFACES; do
-		if [ $IFACE == "wlan0" ] || [ $IFACE == "eno1" ]; then
+		if [ $IFACE == "wlan0" ] || [ $IFACE == "lo" ]; then
 			RECIEVE1=$(($(ifconfig $IFACE | grep "RX packets" | awk '{print $5}') + $RECIEVE1))
 		fi
 	done
 	sleep 1
 	IFACES=$(ip -o link show | awk -F': ' '{print $2}')
 	for IFACE in $IFACES; do
-		if [ $IFACE == "wlan0" ] || [ $IFACE == "eno1" ]; then
+		if [ $IFACE == "wlan0" ] || [ $IFACE == "lo" ]; then
 			RECIEVE2=$(($(ifconfig $IFACE | grep "RX packets" | awk '{print $5}') + $RECIEVE2))
 		fi
 	done
