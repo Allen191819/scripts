@@ -23,7 +23,7 @@ lock) betterlockscreen -l ;;
 browser) brave-browser-beta ;;
 pavucontrol) pavucontrol ;;
 postman) postman ;;
-qq) qq ;;
+qq) linuxqq ;;
 clipboard) export CM_LAUNCHER=dmenu&&clipmenu ;;
 notebook) jupyter notebook ;;
 wechat) electronic-wechat-uos-bin ;;
@@ -44,5 +44,5 @@ vncviewer) vncviewer ;;
 warpd-n) warpd --normal ;;
 warpd-h) warpd --hint ;;
 warpd-g) warpd --grid ;;
-wallpaper) /home/allen/scripts/wallpaper.sh ;;
+wallpaper) /home/allen/scripts/set-screen.sh && /home/allen/scripts/wallpaper.sh ;;
 esac

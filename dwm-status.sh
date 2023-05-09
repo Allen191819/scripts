@@ -32,7 +32,7 @@ upload_color="$s2d_fg$color00$s2d_bg$color02"
 docker_color="$s2d_fg$color08$s2d_bg$color07"
 
 print_cpu() {
-	cpu_icon=""
+	cpu_icon=""
 	cpu_text=$(top -n 1 -b | sed -n '3p' | awk '{printf "%02d", 100 - $8}')
 
 	if [ "$cpu_text" -ge 90 ]; then
@@ -140,7 +140,7 @@ print_mem() {
 }
 
 print_coins() {
-	text=" ﴑ:$BTC ﲹ:$ETH  :$BNB "
+	text=" :$BTC :$ETH 󰍆 :$BNB "
 	color=$coin_color
 	printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
@@ -184,18 +184,18 @@ print_vol() {
 	vol_text=$(pamixer --get-volume)
 	if [ "$volunmuted" = true ]; then
 		vol_text="--"
-		vol_icon="婢"
+		vol_icon="󰖁"
 	elif [ "$vol_text" -eq 0 ]; then
 		vol_text="--"
-		vol_icon="婢"
+		vol_icon="󰖁"
 	elif [ "$vol_text" -lt 10 ]; then
-		vol_icon="奄"
+		vol_icon="󰕿"
 		vol_text=0$vol_text
 	elif [ "$vol_text" -le 20 ]; then
-		vol_icon="奄"
+		vol_icon="󰖀"
 	elif [ "$vol_text" -le 60 ]; then
-		vol_icon="奔"
-	else vol_icon="墳"; fi
+		vol_icon="󰕾"
+	else vol_icon="󰕾"; fi
 	vol_text=$vol_text%
 
 	text=" $vol_icon $vol_text "
@@ -334,4 +334,4 @@ print_up_traffic() {
 	printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-xsetroot -name "$(print_coins)$(print_down_traffic)$(print_up_traffic)$(print_docker)$(print_cpu)$(print_mem)$(print_mail)$(print_time)$(print_vol)$(print_light)$(print_bat)$(print_others)"
+xsetroot -name "$(print_coins)$(print_down_traffic)$(print_up_traffic)$(print_cpu)$(print_mem)$(print_mail)$(print_time)$(print_vol)$(print_light)$(print_bat)$(print_others)"
