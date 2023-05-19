@@ -51,6 +51,7 @@ every300s() {
 		~/scripts/set-screen.sh check &
 		~/scripts/dwm-status.sh &
 		sleep 600
+        betterlockscreen -u ~/Pictures/Background/ &
 	done
 }
 
