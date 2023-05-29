@@ -33,7 +33,7 @@ screenkey) sk ;;
 surf) /usr/local/bin/surf $2 >>/dev/null 2>&1 & ;;
 clock) ~/scripts/lib/clockst -c float -g 60x15$(st_geometry) -e tty-clock -csDC 7 & ;;
 ast) st ;;
-music) listen1 ;;
+music) /opt/YesPlayMusic/yesplaymusic ;;
 virt) virt-manager ;;
 db) dbeaver ;;
 telegram) telegram-desktop ;;
